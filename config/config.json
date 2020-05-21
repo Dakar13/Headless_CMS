@@ -1,0 +1,17 @@
+{
+  "server": {
+    "port": 5000
+  },
+  "db": {
+      "host": "localhost",
+      "port": 3306,
+      "dialect": "mysql",
+      "database": "headless_cms",
+      "username": "root",
+      "password": "sasha"
+  },
+  "security": {
+      "secretKey": "Gr49hQ1Cm5",
+      "expiresIn": "1d"
+  }
+}

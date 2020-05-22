@@ -1,3 +1,5 @@
+import { App, User, Sequelize } from './types'
+
 // Sequelize
 export interface iDataTypes {
   UUID: string
@@ -7,13 +9,7 @@ export interface iDataTypes {
 }
 
 // App
-type App = {
-  appName: string
-  icon: string
-  description: string
-}
-
-export interface iApp extends App {
+export interface iApp extends App, Sequelize {
   id: string
   createdAt: Date
   updatedAt: Date
@@ -22,22 +18,23 @@ export interface iApp extends App {
 export interface iCreateAppInput extends App {}
 
 // User
-type User = {
-  username: string
-  password: string
-  email: string
-  privilege: string
-  active: boolean
-}
-
-export interface iUser extends User {
+export interface iUser extends User, Sequelize {
   id: string
-  token: string
-  createdAt: Date
-  updatedAt: Date
+  token?: string
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 export interface iCreateUserInput extends User {}
+
+export interface iLoginInput {
+  email: string
+  password: string
+}
+
+export interface iAuthPayload {
+  token: string
+}
 
 // Models
 export interface iModels {

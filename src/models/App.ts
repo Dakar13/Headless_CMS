@@ -9,7 +9,7 @@ export default (sequelize: any, DataTypes: iDataTypes): iApp => {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4()
     },
-    appName: {
+    appname: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true

@@ -1,0 +1,38 @@
+import Sequelize from 'sequelize-mock'
+import App from '../App'
+
+const sequelize = new Sequelize()
+const DataTypes = sequelize.Sequelize
+const model = App(sequelize, DataTypes)
+const schema = model._defaults
+const modelName = 'App'
+
+describe('#App', () => {
+  it('Should have correct model name', () => {
+    expect(model.name).toBe(modelName)
+  })
+
+  it('Should match the schema', () => {
+    expect(schema).toEqual({
+      id: {
+        primaryKey: true,
+        allowNull: false,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4()
+      },
+      appname: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+      },
+      icon: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      description: {
+        type: DataTypes.STRING,
+        allowNull: true
+      }
+    })
+  })
+})

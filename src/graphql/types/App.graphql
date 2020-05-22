@@ -1,0 +1,22 @@
+type App {
+  id: UUID!
+  appName: String!
+  icon: String!
+  description: String!
+  createdAt: Datetime!
+  updatedAt: Datetime!
+}
+
+type Query {
+  getApps: [App!]
+}
+
+type Mutation {
+  createApp(input: CreateAppInput): App!
+}
+
+input CreateAppInput {
+  appName: String!
+  icon: String!
+  description: String!
+}

@@ -19,6 +19,8 @@ export interface iApp extends App {
   updatedAt: Date
 }
 
+export interface iCreateAppInput extends App {}
+
 // User
 type User = {
   username: string
@@ -34,6 +36,8 @@ export interface iUser extends User {
   createdAt: Date
   updatedAt: Date
 }
+
+export interface iCreateUserInput extends User {}
 
 // Models
 export interface iModels {

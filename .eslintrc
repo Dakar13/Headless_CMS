@@ -2,6 +2,7 @@
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "prettier"],
   "extends": [
+    "airbnb",
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
@@ -24,12 +25,16 @@
     }
   },
   "rules": {
+    "@typescript-eslint/class-name-casing": "off",
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/member-delimiter-style": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-explicit-any": "off",
     "import/extensions": "off",
-    "max-len": ["error", { "code": 120, "tabWidth": 2 }],
-    "no-param-reassign":"off",
-    "no-underscore-dangle":"off",
+    "import/prefer-default-export": "off",
+    "max-len": ["error", { "code": 80, "tabWidth": 2 }],
+    "no-param-reassign": "off",
+    "no-underscore-dangle": "off",
     "prettier/prettier": "error"
   }
 }

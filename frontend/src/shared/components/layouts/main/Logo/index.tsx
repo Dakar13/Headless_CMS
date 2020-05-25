@@ -1,3 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable react/jsx-filename-extension */
 // Dependencies
 import React from 'react'
 

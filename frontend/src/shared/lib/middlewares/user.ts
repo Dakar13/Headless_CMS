@@ -1,3 +1,6 @@
+/* eslint-disable consistent-return */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable no-shadow */
 // Dependencies
 import jwt from 'jsonwebtoken'
 import { getBase64, redirectTo } from 'fogg-utils'
@@ -50,7 +53,8 @@ export const isConnected = (
   User(req).jwtVerify((user: any) => {
     if (!user && !isLogged) {
       return next()
-    } else if (user && isLogged) {
+    }
+    if (user && isLogged) {
       if (privileges.includes('god') && user.privilege === 'god') {
         return next()
       }
@@ -65,9 +69,8 @@ export const isConnected = (
 
       if (privileges.includes('user') && user.privilege === 'user') {
         return next()
-      } else {
-        res.redirect(redirectTo)
       }
+      res.redirect(redirectTo)
     } else {
       res.redirect(redirectTo)
     }

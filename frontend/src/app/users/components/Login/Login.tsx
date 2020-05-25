@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable import/order */
+/* eslint-disable import/no-unresolved */
 /* eslint-disable react/jsx-filename-extension */
 // Dependencies
 import React, { FC, ReactElement, useState, useContext, useEffect } from 'react'

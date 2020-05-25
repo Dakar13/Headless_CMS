@@ -1,3 +1,6 @@
+/* eslint-disable no-shadow */
+/* eslint-disable react/prop-types */
+/* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable react/jsx-filename-extension */
 // Dependencies
 import React, { FC, ReactElement, useState, createContext } from 'react'

@@ -1,3 +1,8 @@
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable react/prop-types */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable import/no-unresolved */
 // Dependencies
 import { ApolloProvider } from 'react-apollo-hooks'
 import { isBrowser } from 'fogg-utils'

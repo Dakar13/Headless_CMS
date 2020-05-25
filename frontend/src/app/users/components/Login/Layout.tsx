@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable import/no-unresolved */
 // Dependencies
 import React, { FC, ReactElement, useContext } from 'react'
 import Head from 'next/head'

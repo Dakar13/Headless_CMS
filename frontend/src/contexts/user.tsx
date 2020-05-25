@@ -1,3 +1,7 @@
+/* eslint-disable consistent-return */
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable react/prop-types */
+/* eslint-disable import/no-unresolved */
 // Dependencies
 import React, { FC, createContext, useState, ReactElement } from 'react'
 import { useApolloClient } from 'react-apollo-hooks'

@@ -8,8 +8,8 @@
     "resolveJsonModule": true,
     "sourceMap": false,
     "target": "es6",
-    "types": ["node"],
-    "typeRoots": ["src/typings", "./node_modules/@types"],
+    "types": ["node", "express"],
+    "typeRoots": ["typings", "../node_modules/@types"],
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -21,6 +21,10 @@
     "jsx": "preserve",
     "paths": {
       "@app/*": ["app/*"],
+      "@config": ["config"],
+      "@contexts/*": ["contexts/*"],
+      "@graphql/*": ["graphql/*"],
+      "@interfaces": ["interfaces"],
       "@pages/*": ["pages/*"],
       "@shared/*": ["shared/*"]
     }

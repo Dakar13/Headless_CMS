@@ -25,6 +25,10 @@
     }
   },
   "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
     "@typescript-eslint/class-name-casing": "off",
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/member-delimiter-style": "off",

@@ -1,0 +1,53 @@
+@import '~styles/_dependencies';
+
+.footer {
+  width: 97%;
+  text-align: center;
+  height: 54px;
+  background-color: transparent;
+
+  .content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $emperor;
+    font-size: 14px;
+    justify-content: space-between;
+
+    .leftText {
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 12px;
+      color: $emperor;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .rightOptions {
+      ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+
+        li {
+          flex: auto;
+          padding: 10px;
+
+          a {
+            color: $gray;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            font-size: 12px;
+
+            &:hover {
+              color: $black;
+            }
+          }
+        }
+      }
+    }
+  }
+}

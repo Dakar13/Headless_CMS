@@ -1,0 +1,77 @@
+@import '~styles/_dependencies';
+
+.fields {
+  width: 210px;
+  padding: 10px;
+
+  ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+
+    li {
+      div {
+        cursor: pointer;
+
+        p {
+          color: $gray;
+          text-decoration: none;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          font-size: 12px;
+          padding: 0px;
+          font-weight: 400;
+          line-height: 1.5;
+        }
+
+        .widgetOption {
+          align-items: center;
+          border-radius: 5px;
+          border: 1px solid $alabaster;
+          box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px;
+          box-sizing: border-box;
+          display: flex;
+          height: 40px;
+          padding: 5px;
+          width: 100%;
+
+          i {
+            margin-right: 10px;
+            font-size: 22px;
+          }
+
+          .red {
+            color: $thunderbird;
+          }
+
+          .yellow {
+            color: $sunglow;
+          }
+
+          .pink {
+            color: $hollywoodCerise;
+          }
+
+          .purple {
+            color: $amethyst;
+          }
+
+          .green {
+            color: $malachite;
+          }
+
+          .blue {
+            color: $denim;
+          }
+
+          span {
+            font-size: 14px;
+            text-transform: capitalize;
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+}

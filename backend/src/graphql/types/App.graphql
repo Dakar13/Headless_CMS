@@ -1,5 +1,6 @@
 type App {
   id: UUID!
+  userId: UUID!
   appName: String!
   icon: String!
   description: String!
@@ -19,4 +20,5 @@ input CreateAppInput {
   appName: String!
   icon: String!
   description: String!
+  userId: UUID!
 }

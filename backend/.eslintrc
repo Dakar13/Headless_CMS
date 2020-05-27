@@ -35,6 +35,15 @@
     "max-len": ["error", { "code": 80, "tabWidth": 2 }],
     "no-param-reassign": "off",
     "no-underscore-dangle": "off",
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensiones": [".tsx"]
+      }
+    ],
+    "react/jsx-props-no-spreading": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "react/jsx-one-expression-per-line": "off"
   }
 }

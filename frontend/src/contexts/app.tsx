@@ -15,18 +15,18 @@ interface iProps {
 
 export const AppContext = createContext<iAppContext>({
   get: () => null,
-  post: () = null,
+  post: () => null,
   state: {}
 })
 
 const AppProvider: FC<iProps> = ({ children }): ReactElement => {
-  const { query: queryFn } = useApolloClient()
+  const { query: queryFn, mutate } = useApolloClient()
   const [state, setState] = useState({})
 
   async function get(options: any) {
     const { query, variables = {} } = options
 
-    const queryName = getQueryName(query)
+    const queryName: any = getQueryName(query)
 
     try {
       const { data } = await queryFn({
@@ -73,6 +73,7 @@ const AppProvider: FC<iProps> = ({ children }): ReactElement => {
 
   const context = {
     get,
+    post,
     state
   }
 

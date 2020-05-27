@@ -1,23 +1,17 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable react/jsx-filename-extension */
 // Dependencies
-import React from 'react'
+import React, { ReactElement } from 'react'
 
 // Components
-import Link from 'next/link'
+import Link from '@ui/Link'
 
 // Styles
 import styles from './Logo.scss'
 
-const Logo = () => {
+const Logo = (): ReactElement => {
   return (
     <div className={styles.logo}>
-      <Link href="/">
-        <a>
-          <img src="/images/logo.png" />
-        </a>
+      <Link href="/dashboard">
+        <img src="/images/logo.png" />
       </Link>
     </div>
   )

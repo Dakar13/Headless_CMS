@@ -1,11 +1,10 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 // Dependencies
 import React, { FC, ReactElement, useState } from 'react'
+import { Icon, Modal } from 'fogg-ui'
 
 // Components
-import { Icon, Modal } from 'fogg-ui'
-import Link from '@shared/components/ui/Link'
+import Link from '@ui/Link'
+import CreateAppModal from '@layouts/main/Modals/CreateAppModal'
 
 // Styles
 import styles from './Cards.scss'
@@ -21,21 +20,19 @@ const Cards: FC<iProps> = ({ items }): ReactElement => {
   const title = 'My Apps'
 
   // Method to open modal
-  const handleModal = () => setIsOpen(!isOpen)
+  const handleModal = (): void => setIsOpen(!isOpen)
 
   return (
     <>
-      <Modal
-        isOpen={isOpen}
+      <CreateAppModal
         label="Create new App"
+        isOpen={isOpen}
+        onClose={handleModal}
         options={{
           position: 'center',
           width: '400px'
         }}
-        onClose={handleModal}
-      >
-        <p>Content</p>
-      </Modal>
+      />
 
       <section className={styles.cards}>
         <h1>{title}</h1>

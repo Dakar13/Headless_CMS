@@ -1,9 +1,5 @@
-/* eslint-disable consistent-return */
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/prop-types */
-/* eslint-disable import/no-unresolved */
 // Dependencies
-import React, { FC, createContext, useState, ReactElement } from 'react'
+import React, { FC, createContext, ReactElement } from 'react'
 import { useApolloClient } from 'react-apollo-hooks'
 import { useCookies } from 'react-cookie'
 import { getGraphQlError } from 'fogg-utils'
@@ -18,6 +14,7 @@ interface iUserContext {
 
 interface iProps {
   children: ReactElement
+  connectedUser?: object
 }
 
 export const UserContext = createContext<iUserContext>({
@@ -25,12 +22,17 @@ export const UserContext = createContext<iUserContext>({
   user: {}
 })
 
-const UserProvider: FC<iProps> = ({ children }): ReactElement => {
+const UserProvider: FC<iProps> = ({
+  children,
+  connectedUser = {}
+}): ReactElement => {
   const { mutate } = useApolloClient()
   const [, setCookie] = useCookies()
-  const [user, setUser] = useState([])
 
-  async function login(input: { email: string; password: string }) {
+  async function login(input: {
+    email: string
+    password: string
+  }): Promise<any> {
     try {
       const { data } = await mutate({
         mutation: LOGIN_MUTATION,
@@ -42,7 +44,6 @@ const UserProvider: FC<iProps> = ({ children }): ReactElement => {
 
       if (data) {
         setCookie('at', data.login.token, { path: '/' })
-        setUser(data.login.token)
 
         return data.login.token
       }
@@ -53,7 +54,7 @@ const UserProvider: FC<iProps> = ({ children }): ReactElement => {
 
   const context = {
     login,
-    user
+    user: connectedUser
   }
 
   return <UserContext.Provider value={context}>{children}</UserContext.Provider>

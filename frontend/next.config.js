@@ -20,7 +20,6 @@ export default withSass({
     config.resolve.alias['@interfaces'] = path.resolve(dir, './src/interfaces')
     config.resolve.alias['@pages'] = path.resolve(dir, './src/pages')
     config.resolve.alias['@shared'] = path.resolve(dir, './src/shared')
-    config.resolve.alias.styles = path.resolve(dir, './src/shared/styles')
     config.resolve.alias['@layouts'] = path.resolve(
       dir,
       './src/shared/components/layouts'

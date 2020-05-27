@@ -1,5 +1,5 @@
-/* eslint-disable react/react-in-jsx-scope */
 // Dependencies
+import React, { ReactElement } from 'react'
 import { ApolloProvider } from 'react-apollo-hooks'
 
 // Hooks
@@ -8,16 +8,25 @@ import useApolloClient from '@shared/lib/apollo'
 // Contexts
 import AppProvider from '@contexts/app'
 import UserProvider from '@contexts/user'
+import FormProvider from '@contexts/form'
 
 // Components
 import DashboardLayout from '@app/dashboard/components/Layout'
 
-export default () => (
+const DashboardPage = ({ user }: { user: any }): ReactElement => (
   <ApolloProvider client={useApolloClient()}>
-    <UserProvider>
+    <UserProvider connectedUser={user}>
       <AppProvider>
-        <DashboardLayout />
+        <FormProvider>
+          <DashboardLayout />
+        </FormProvider>
       </AppProvider>
     </UserProvider>
   </ApolloProvider>
 )
+
+DashboardPage.getInitialProps = ({ req }: { req: any }): any => ({
+  user: req.user
+})
+
+export default DashboardPage

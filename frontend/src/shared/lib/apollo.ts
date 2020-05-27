@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable import/no-unresolved */
 // Dependencies
 import { ApolloClient } from 'apollo-boost'
 import { InMemoryCache } from 'apollo-cache-inmemory'
@@ -10,7 +8,7 @@ import fetch from 'isomorphic-fetch'
 // Configuration
 import config from '@config'
 
-export default () => {
+export default (): any => {
   const httpLink = new HttpLink({
     uri: config.api.uri,
     credentials: config.api.credentials,
@@ -18,7 +16,7 @@ export default () => {
   })
 
   const cache = new InMemoryCache({
-    dataIdFromObject: object => object.id || null,
+    dataIdFromObject: (object): any => object.id || null,
     addTypename: false
   })
 

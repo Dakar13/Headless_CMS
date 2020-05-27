@@ -26,6 +26,8 @@
       "@graphql/*": ["graphql/*"],
       "@interfaces": ["interfaces"],
       "@pages/*": ["pages/*"],
+      "@layouts/*": ["shared/components/layouts/*"],
+      "@ui/*": ["shared/components/ui/*"],
       "@shared/*": ["shared/*"]
     }
   },

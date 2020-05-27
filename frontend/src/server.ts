@@ -45,14 +45,24 @@ nextApp.prepare().then(() => {
   })
 
   app.use(
-    '/dashboard',
+    `/dashboard/:appId?/:stage?/:moduleName?`,
     isConnected(
       true,
       ['god', 'admin', 'editor'],
       '/login?redirectTo=/dashboard'
     ),
     (req: any, res: any) => {
-      return nextApp.render(req, res, '/dashboard', req.query)
+      const { appId, stage, moduleName } = req.params
+      let page = '/dashboard'
+
+      if (appId && stage) {
+        page = !moduleName ? '/dashboard/home' : `/dashboard/${moduleName}`
+      }
+
+      return nextApp.render(req, res, page, {
+        ...req.params,
+        ...req.query
+      })
     }
   )
 

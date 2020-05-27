@@ -11,7 +11,7 @@ import { cx, redirectTo } from 'fogg-utils'
 import { FormContext } from '@contexts/form'
 
 // Commponents
-import Logo from '@shared/components/layouts/main/Logo'
+import Logo from '@layouts/main/Logo'
 
 // Styles
 import styles from './Login.scss'

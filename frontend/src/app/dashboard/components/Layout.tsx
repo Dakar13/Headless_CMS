@@ -5,17 +5,19 @@ import Head from 'next/head'
 // Contexts
 import { UserContext } from '@contexts/user'
 
-// Shared components
-import Header from '@shared/components/layouts/main/Header'
-import Content from '@shared/components/layouts/main/Content'
-import Sidebar from '@shared/components/layouts/main/Sidebar'
+// Components
+import Apps from './Apps'
+import Home from './Home'
 
 // Styles
 import styles from './Layout.scss'
 
-const Layout: FC = (): ReactElement => {
-  const { user } = useContext(UserContext)
+// Interface
+interface iProps {
+  moduleName?: string
+}
 
+const Layout: FC<iProps> = ({ moduleName = '' }): ReactElement => {
   return (
     <>
       <Head>
@@ -24,11 +26,8 @@ const Layout: FC = (): ReactElement => {
       </Head>
 
       <div className={styles.layout}>
-        <Sidebar />
-
-        <Content>
-          <Header />
-        </Content>
+        {moduleName === 'Home' && <Home />}
+        {!moduleName && <Apps />}
       </div>
     </>
   )

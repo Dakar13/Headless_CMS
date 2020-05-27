@@ -1,7 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable import/order */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // Dependencies
 import React, { FC, ReactElement, useState, useContext, useEffect } from 'react'
 import { Alert, DarkButton, PrimaryButton, Input, RenderIf } from 'fogg-ui'
@@ -13,11 +10,11 @@ import { FormContext } from '@contexts/form'
 // Commponents
 import Logo from '@layouts/main/Logo'
 
-// Styles
-import styles from './Login.scss'
-
 // Interfaces
 import { iUser } from '@interfaces'
+
+// Styles
+import styles from './Login.scss'
 
 interface iProps {
   login(input: any): any

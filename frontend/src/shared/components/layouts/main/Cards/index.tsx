@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // Dependencies
 import React, { FC, ReactElement, useState } from 'react'
 import { Icon, Modal } from 'fogg-ui'

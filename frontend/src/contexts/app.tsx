@@ -35,6 +35,7 @@ const AppProvider: FC<iProps> = ({ children }): ReactElement => {
   async function get(options: any): Promise<any> {
     const { query, variables = {} } = options
 
+    // Single query
     const queryName: any = getQueryName(query)
 
     try {

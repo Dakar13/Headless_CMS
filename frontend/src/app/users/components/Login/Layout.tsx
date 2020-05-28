@@ -1,8 +1,5 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable import/no-unresolved */
 // Dependencies
-import React, { FC, ReactElement, useContext } from 'react'
+import React, { FC, ReactElement, useContext, memo } from 'react'
 import Head from 'next/head'
 
 // Contexts
@@ -21,6 +18,7 @@ interface iProps {
 
 const Layout: FC<iProps> = ({ currentUrl }): ReactElement => {
   const { login } = useContext(UserContext)
+
   return (
     <>
       <Head>
@@ -33,4 +31,4 @@ const Layout: FC<iProps> = ({ currentUrl }): ReactElement => {
   )
 }
 
-export default Layout
+export default memo(Layout)

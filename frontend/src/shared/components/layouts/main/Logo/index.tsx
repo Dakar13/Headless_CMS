@@ -1,5 +1,5 @@
 // Dependencies
-import React, { ReactElement } from 'react'
+import React, { ReactElement, memo } from 'react'
 
 // Components
 import Link from '@ui/Link'
@@ -11,10 +11,10 @@ const Logo = (): ReactElement => {
   return (
     <div className={styles.logo}>
       <Link href="/dashboard">
-        <img src="/images/logo.png" />
+        <img alt="Logo" src="/images/logo.png" />
       </Link>
     </div>
   )
 }
 
-export default Logo
+export default memo(Logo)

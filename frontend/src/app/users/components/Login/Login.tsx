@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 // Dependencies
-import React, { FC, ReactElement, useState, useContext, useEffect } from 'react'
+import React, { FC, ReactElement, useState, useContext, memo } from 'react'
 import { Alert, DarkButton, PrimaryButton, Input, RenderIf } from 'fogg-ui'
-import { cx, redirectTo } from 'fogg-utils'
+import { redirectTo } from 'fogg-utils'
 
 // Contexts
 import { FormContext } from '@contexts/form'
@@ -21,7 +20,7 @@ interface iProps {
   currentUrl: string
 }
 
-const Login: FC<iProps> = ({ login, currentUrl }) => {
+const Login: FC<iProps> = ({ login, currentUrl }): ReactElement => {
   // States
   const [errorMessage, setErrorMessage] = useState('')
   const [invalidLogin, setInvalidLogin] = useState(false)
@@ -30,7 +29,7 @@ const Login: FC<iProps> = ({ login, currentUrl }) => {
   const { onChange, values } = useContext(FormContext)
 
   // Methods
-  const handleLogin = async (user: iUser) => {
+  const handleLogin = async (user: iUser): Promise<void> => {
     const response = await login(user)
 
     if (response.error) {
@@ -50,7 +49,7 @@ const Login: FC<iProps> = ({ login, currentUrl }) => {
         </Alert>
       </RenderIf>
 
-      <div className={styles.Login}>
+      <div className={styles.login}>
         <div className={styles.wrapper}>
           <div className={styles.form}>
             <div className={styles.logo}>
@@ -79,7 +78,10 @@ const Login: FC<iProps> = ({ login, currentUrl }) => {
 
             <div className={styles.actions}>
               <div className={styles.left}>
-                <DarkButton name="login" onClick={() => handleLogin(values)}>
+                <DarkButton
+                  name="login"
+                  onClick={(): Promise<void> => handleLogin(values)}
+                >
                   Login
                 </DarkButton>
                 &nbsp;
@@ -93,4 +95,4 @@ const Login: FC<iProps> = ({ login, currentUrl }) => {
   )
 }
 
-export default Login
+export default memo(Login)

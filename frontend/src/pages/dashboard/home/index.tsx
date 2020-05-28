@@ -1,5 +1,5 @@
-/* eslint-disable react/react-in-jsx-scope */
 // Dependencies
+import React, { ReactElement } from 'react'
 import { ApolloProvider } from 'react-apollo-hooks'
 
 // Hooks
@@ -12,7 +12,7 @@ import UserProvider from '@contexts/user'
 // Components
 import DashboardLayout from '@app/dashboard/components/Layout'
 
-export default () => (
+export default (): ReactElement => (
   <ApolloProvider client={useApolloClient()}>
     <UserProvider>
       <AppProvider>

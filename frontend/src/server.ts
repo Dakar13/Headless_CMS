@@ -40,7 +40,7 @@ nextApp.prepare().then(() => {
 
   // Routes
   app.get('/login', isConnected(false), (req: any, res: any) => {
-    return nextApp.render(req, res, '/dashboard/playground')
+    return nextApp.render(req, res, '/users/login')
   })
 
   app.use(

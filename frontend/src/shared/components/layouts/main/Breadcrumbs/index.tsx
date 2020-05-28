@@ -15,7 +15,7 @@ const Breadcrumbs: FC = (): ReactElement => (
         <span>/</span>
       </li>
       <li>
-        <a href="#top">Home</a>
+        <a href="#">Home</a>
       </li>
     </ul>
   </div>

@@ -1,9 +1,5 @@
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/prop-types */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable import/no-unresolved */
 // Dependencies
+import React, { ReactElement } from 'react'
 import { ApolloProvider } from 'react-apollo-hooks'
 import { isBrowser } from 'fogg-utils'
 
@@ -21,7 +17,7 @@ const LoginPage = ({
   currentUrl = isBrowser()
     ? window.location.search.replace('?redirectTo=', '')
     : ''
-}) => (
+}): ReactElement => (
   <ApolloProvider client={useApolloClient()}>
     <UserProvider>
       <FormProvider initialValues={{ email: '', password: '' }}>

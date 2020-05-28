@@ -1,5 +1,12 @@
 // Dependencies
-import React, { FC, ReactElement, useContext, useState, useEffect } from 'react'
+import React, {
+  FC,
+  ReactElement,
+  useContext,
+  useState,
+  useEffect,
+  memo
+} from 'react'
 import { Modal, Badge, Input, DarkButton, Icon } from 'fogg-ui'
 import { generateHexCode, invertHexCode, redirectTo } from 'fogg-utils'
 
@@ -70,7 +77,7 @@ const CreateAppModal: FC<iProps> = ({
   return (
     <Modal isOpen={isOpen} label={label} options={options} onClose={onClose}>
       <div>
-        <label>
+        <label htmlFor="appName">
           App Name {required.appName && <Badge danger>Required</Badge>}
         </label>
         <Input
@@ -83,7 +90,7 @@ const CreateAppModal: FC<iProps> = ({
       </div>
 
       <div>
-        <label>
+        <label htmlFor="icon">
           Icon Color <Icon type="fas fa-sync-alt" onClick={handleIconColor} />
         </label>
         <Input
@@ -99,7 +106,7 @@ const CreateAppModal: FC<iProps> = ({
       </div>
 
       <div>
-        <label>Description</label>
+        <label htmlFor="description">Description</label>
         <Input
           name="description"
           placeholder="Small description about your new app"
@@ -115,4 +122,4 @@ const CreateAppModal: FC<iProps> = ({
   )
 }
 
-export default CreateAppModal
+export default memo(CreateAppModal)

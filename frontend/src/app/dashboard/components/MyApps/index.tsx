@@ -1,6 +1,5 @@
 // Dependencies
 import React, { FC, ReactElement, useContext, useEffect } from 'react'
-import Head from 'next/head'
 
 // Contexts
 import { AppContext } from '@contexts/app'
@@ -9,18 +8,19 @@ import { AppContext } from '@contexts/app'
 import GET_APPS_QUERY from '@graphql/apps/getApps.query'
 
 // Shared components
+import MainLayout from '@layouts/main/MainLayout'
 import Logo from '@layouts/main/Logo'
 import Cards from '@layouts/main/Cards'
 
 // Styles
-import styles from './Apps.scss'
+import styles from './MyApps.scss'
 
-const Apps: FC = (): ReactElement => {
+const MyApps: FC = (): ReactElement => {
   // Contexts
   const { get, state } = useContext(AppContext)
 
   // Methods
-  const fetch = async () => {
+  const fetch = async (): Promise<void> => {
     await get({
       query: GET_APPS_QUERY
     })
@@ -39,13 +39,8 @@ const Apps: FC = (): ReactElement => {
   }
 
   return (
-    <>
-      <Head>
-        <title>Dashboard</title>
-        <meta name="title" content="Dashboard" />
-      </Head>
-
-      <div className={styles.apps}>
+    <MainLayout title="MyApps">
+      <div className={styles.myApps}>
         <div className={styles.header}>
           <div className={styles.logo}>
             <Logo />
@@ -54,8 +49,8 @@ const Apps: FC = (): ReactElement => {
 
         <Cards items={state.getApps} />
       </div>
-    </>
+    </MainLayout>
   )
 }
 
-export default Apps
+export default MyApps

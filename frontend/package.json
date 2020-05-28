@@ -28,8 +28,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.10.0",
-    "@babel/node": "^7.8.7",
+    "@babel/core": "^7.10.1",
+    "@babel/node": "^7.10.1",
     "@types/cookie-parser": "^1.4.2",
     "@types/cookie-session": "^2.0.40",
     "@types/cors": "^2.8.6",

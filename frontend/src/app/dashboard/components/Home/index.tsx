@@ -1,5 +1,5 @@
 // Dependencies
-import React, { FC, ReactElement } from 'react'
+import React, { FC, ReactElement, memo } from 'react'
 
 // Shared components
 import MainLayout from '@layouts/main/MainLayout'
@@ -14,4 +14,4 @@ const Home: FC = (): ReactElement => {
   )
 }
 
-export default Home
+export default memo(Home)

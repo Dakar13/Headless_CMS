@@ -1,15 +1,15 @@
 // Interface
-import { iApp, iModels, iDataTypes } from '../interfaces'
+import { iModel, iModels, iDataTypes } from '../interfaces'
 
-export default (sequelize: any, DataTypes: iDataTypes): iApp => {
-  const App = sequelize.define('App', {
+export default (sequelize: any, DataTypes: iDataTypes): iModel => {
+  const Model = sequelize.define('Model', {
     id: {
       primaryKey: true,
       allowNull: false,
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4()
     },
-    appName: {
+    modelName: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true
@@ -19,25 +19,21 @@ export default (sequelize: any, DataTypes: iDataTypes): iApp => {
       allowNull: false,
       unique: true
     },
-    icon: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     description: {
       type: DataTypes.STRING,
       allowNull: true
     }
   })
 
-  App.associate = (models: iModels): void => {
-    App.hasMany(models.Model, {
+  Model.associate = (models: iModels): void => {
+    Model.hasMany(models.Field, {
       foreignKey: {
-        name: 'appId',
-        field: 'app_id'
+        name: 'modelId',
+        field: 'model_id'
       },
-      as: 'models'
+      as: 'fields'
     })
   }
 
-  return App
+  return Model
 }

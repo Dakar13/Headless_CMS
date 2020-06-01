@@ -11,7 +11,7 @@ import { $db } from '../../config'
 import { iModels } from '../interfaces'
 
 // Db Connection
-const { dialect = 'mysql', port, host, database, username, password } = $db
+const { dialect = 'postgres', port, host, database, username, password } = $db
 
 const uri = `${dialect}://${username}:${password}@${host}:${port}/${database}`
 const sequelize = new Sequelize(uri)
@@ -19,6 +19,9 @@ const sequelize = new Sequelize(uri)
 // Models
 const models: iModels = {
   App: sequelize.import('./App'),
+  Declaration: sequelize.import('./Declaration'),
+  Field: sequelize.import('./Field'),
+  Model: sequelize.import('./Model'),
   User: sequelize.import('./User'),
   sequelize
 }

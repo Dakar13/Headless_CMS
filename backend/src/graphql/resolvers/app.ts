@@ -7,12 +7,34 @@ export default {
       _: object,
       _args: object,
       { models }: { models: iModels }
-    ): iApp[] => models.App.findAll(),
-    getAppById: (
+    ): iApp[] =>
+      models.App.findAll({
+        include: [
+          {
+            model: models.Model,
+            as: 'models'
+          }
+        ]
+      }),
+    getAppById: async (
       _: object,
       { id }: { id: string },
       { models }: { models: iModels }
-    ): iApp => models.App.findByPk(id)
+    ): Promise<iApp> => {
+      const data = await models.App.findAll({
+        where: {
+          id
+        },
+        include: [
+          {
+            model: models.Model,
+            as: 'models'
+          }
+        ]
+      })
+
+      return data[0]
+    }
   },
   Mutation: {
     createApp: (

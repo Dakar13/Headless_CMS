@@ -1,4 +1,5 @@
-import { getUserData } from './jwt'
+// Lib
+import { getUserData } from '../jwt'
 
 export const isConnected = (isLogged = true, privileges = ['user'], redirectTo = '/') => async (
   req: any,

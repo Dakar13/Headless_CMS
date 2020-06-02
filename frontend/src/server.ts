@@ -43,6 +43,12 @@ nextApp.prepare().then(() => {
     return nextApp.render(req, res, '/users/login')
   })
 
+  app.get('/logout', (req, res) => {
+    const redirect: any = req.query.redirectTo || '/'
+    res.clearCookie('at')
+    res.redirect(redirect)
+  })
+
   app.use(
     '/dashboard/playground',
     isConnected(true, ['god', 'admin'], '/login?redirectTo=/dashboard'),
@@ -70,6 +76,6 @@ nextApp.prepare().then(() => {
     return handle(req, res)
   })
 
-  // Listening port 3000
+  // Listening port 4000
   app.listen(config.server.port)
 })

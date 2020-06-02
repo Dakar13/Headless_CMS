@@ -12,6 +12,7 @@ type User {
 
 type Query {
   getUsers: [User!]
+  getUserData(at: String!): User!
 }
 
 type Mutation {
@@ -34,4 +35,13 @@ input LoginInput {
 
 type AuthPayload {
   token: String!
+}
+
+type UserPayload {
+  id: String!
+  username: String!
+  password: String!
+  email: String!
+  privilege: String!
+  active: Boolean!
 }

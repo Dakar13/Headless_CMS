@@ -1,46 +1,66 @@
-// Interfaces
-import { iModel, iCreateModelInput, iModels } from '../../interfaces'
+// Interface
+import { iField, iDataTypes } from '../../interfaces'
 
-export default {
-  Query: {
-    getModels: (
-      _: object,
-      _args: object,
-      { models }: { models: iModels }
-    ): iModel[] =>
-      models.Model.findAll({
-        include: [
-          {
-            model: models.Field,
-            as: 'fields'
-          }
-        ]
-      }),
-    getModel: async (
-      _: object,
-      { identifier }: { identifier: string },
-      { models }: { models: iModels }
-    ): Promise<iModel> => {
-      const data = await models.Model.findAll({
-        where: {
-          identifier
-        },
-        include: [
-          {
-            model: models.Field,
-            as: 'fields'
-          }
-        ]
-      })
-
-      return data[0]
+export default (sequelize: any, DataTypes: iDataTypes): iField => {
+  const Field = sequelize.define('Field', {
+    id: {
+      primaryKey: true,
+      allowNull: false,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4()
+    },
+    type: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    fieldName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    identifier: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    defaultValue: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: ''
+    },
+    isMedia: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
+    isRequired: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
+    isUnique: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
+    isHide: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
+    isSystem: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
+    isPrimaryKey: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
     }
-  },
-  Mutation: {
-    createModel: (
-      _: object,
-      { input }: { input: iCreateModelInput },
-      { models }: { models: iModels }
-    ): iModel => models.Model.create({ ...input })
-  }
+  })
+
+  return Field
 }

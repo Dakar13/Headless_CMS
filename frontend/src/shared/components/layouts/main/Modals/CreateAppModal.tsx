@@ -42,30 +42,33 @@ const CreateAppModal: FC<iProps> = ({ isOpen, label, onClose, options }): ReactE
         mutation: CREATE_APP_MUTATION,
         variables: values
       })
+
       if (createApp) {
         redirectTo(`/dashboard/${createApp.id}/master`)
       }
     }
   }
 
+  const handleIconColor = (): void => setValue('icon', generateHexCode())
+
   const _onChange = (e: any): any => {
     setValue('identifier', slugFn(e.target.value))
     onChange(e)
   }
 
-  const handleIconColor = (): void => setValue('icon', generateHexCode())
-
   // Effects
   useEffect(() => {
     // Setting up our initial values
-    setInitialValues({
-      appName: '',
-      identifier: '',
-      icon: generateHexCode(),
-      description: '',
-      userId: user.id
-    })
-  }, [])
+    if (user) {
+      setInitialValues({
+        appName: '',
+        identifier: '',
+        icon: generateHexCode(),
+        description: '',
+        userId: user.id
+      })
+    }
+  }, [user])
 
   return (
     <Modal isOpen={isOpen} label={label} options={options} onClose={onClose}>
